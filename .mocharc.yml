@@ -1,0 +1,7 @@
+timeout : '6000'
+reporter: 'spec'
+package: './package.json'
+parallel: true
+recursive: true
+
+
