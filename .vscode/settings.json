@@ -1,0 +1,21 @@
+{
+    "typescript.tsserver.web.projectWideIntellisense.enabled": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "literals",
+    "javascript.suggest.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": false,
+    "javascript.preferences.organizeImports": {
+
+    },
+    "javascript.implicitProjectConfig.checkJs": true,
+    "javascript.validate.enable": true,
+    
+    "javascript.suggest.autoImports": true,
+    "typescript.suggest.autoImports": true
+    
+    
+  
+}
