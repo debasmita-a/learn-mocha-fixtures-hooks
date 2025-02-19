@@ -1,25 +1,54 @@
-const { WebDriver, By } = require("selenium-webdriver");
-const { DriverManager } = require("./initDriver");
+const { By, WebDriver } = require('selenium-webdriver');
 
-class SignUpPage {
-  /**
-   * @type {WebDriver | null}
-   */
-  driver = null;
 
-  /**
-   * @type {DriverManager}
-   */
-  constructor(driver) {
-    this.driver = new DriverManager().getDriver();
+class SignUpPage{
+
+  constructor(driver){
+     /** @type {WebDriver | null} */
+    this.driver = driver;
   }
 
-  async someMethod(){
-    console.log("................");
+  #signupBtn = By.id("signup");
+  #firstname = By.id("firstName");
+  #lastname = By.id("lastName");
+  #email = By.id("email");
+  #password = By.id("password");
+  #submitBtn = By.id("submit");
+
+  async navigateToSignupPage(){
+    await this.driver.findElement(this.#signupBtn).click();
   }
+
+  async verifySignupPageTitle(){
+    return await this.driver.getTitle();
+  }
+
+  async enterfirstname(fname){
+    await this.driver.findElement(this.#firstname).sendKeys(fname);
+    return this;
+  }
+
+  async enterlastname(lname){
+    await this.driver.findElement(this.#lastname).sendKeys(lname);
+    return this;
+  }
+
+  async enteremail(email){
+    await this.driver.findElement(this.#email).sendKeys(email);
+    return this;
+  }
+
+  async enterpassword(pass){
+    await this.driver.findElement(this.#password).sendKeys(pass);
+    return this;
+  }
+
+  async clickSubmitBtn(){
+    await this.driver.findElement(this.#submitBtn).click();
+    return this;
+  }
+
 }
 
 exports.SignUpPage = SignUpPage;
-
-let s = new SignUpPage();
-s.someMethod();
+//module.exports = SignUpPage;
