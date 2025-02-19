@@ -1,6 +1,5 @@
 const { By, WebDriver } = require('selenium-webdriver');
 
-
 class SignUpPage{
 
   constructor(driver){

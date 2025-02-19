@@ -1,5 +1,4 @@
 const {By, WebDriver, until} = require('selenium-webdriver');
-const {DriverFactory} = require('../pages/driverfactory');
 
 class MyContactsPage {
 
@@ -9,6 +8,7 @@ class MyContactsPage {
     }
 
     #logoutBtn = By.id("logout");
+    #addContactBtn = By.id("add-contact");
 
     async getMyContactsPageTitle(){
         return await this.driver.wait(until.titleIs("My Contacts"));
@@ -16,6 +16,14 @@ class MyContactsPage {
 
     async isLogoutBtnAvailable(){
         return await this.driver.wait(until.elementLocated(this.#logoutBtn)).isDisplayed();
+    }
+
+    async clickLogoutBtn(){
+        return await this.driver.wait(until.elementLocated(this.#logoutBtn)).click();
+    }
+
+    async clickAddNewContactBtn(){
+        await this.driver.findElement(this.#addContactBtn).click();
     }
 }
 
