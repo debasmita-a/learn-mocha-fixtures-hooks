@@ -14,10 +14,6 @@ class SignUpPage{
   #password = By.id("password");
   #submitBtn = By.id("submit");
 
-  async navigateToSignupPage(){
-    await this.driver.findElement(this.#signupBtn).click();
-  }
-
   async verifySignupPageTitle(){
     return await this.driver.getTitle();
   }

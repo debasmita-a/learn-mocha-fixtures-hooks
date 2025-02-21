@@ -10,7 +10,7 @@ class LoginPage{
     #email = By.id("email");
     #password = By.id("password");
     #submitBtn = By.id("submit");
-    #signupBtn = By.id('signup');
+    #signupBtn = By.id("signup");
     #appHeaderText = By.xpath("//h1");
     #errorMsg = By.id("error");
 
@@ -35,7 +35,7 @@ class LoginPage{
     }
 
     async navigateToSignupPage(){
-        await this.driver.wait(until.elementLocated(this.#signupBtn), 2000).click();
+        await this.driver.wait(until.elementLocated(this.#signupBtn), 3000).click();
     }
 
     async getErrorMessage(){

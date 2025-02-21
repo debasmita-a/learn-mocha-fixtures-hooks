@@ -28,7 +28,7 @@ describe("Login Page test suite", () => {
   });
 
   it("Verify user logs in successfully with correct username and password", async () => {
-    //TODO : Figure out how to shorten the below test
+    //TODO : Figure out how to clean up the below test
 
     //Step -1 : Sign up with faker library user data
     await loginPage.navigateToSignupPage();
@@ -45,6 +45,7 @@ describe("Login Page test suite", () => {
     await loginPage.doLogin();
     let title = await myContactsPage.getMyContactsPageTitle();
     expect(title).to.be.true;
+    await myContactsPage.clickLogoutBtn();
   });
 
   it("Verify user logs in unsuccessfully with incorrect username and password", async () => {
