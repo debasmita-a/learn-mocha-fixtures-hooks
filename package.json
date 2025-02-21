@@ -11,6 +11,7 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^9.5.0",
     "chai": "^4.5.0",
     "learn-mocha-fixtures": "file:",
     "mocha": "^11.1.0",

@@ -2,6 +2,7 @@ const {SignUpPage}  = require("../pages/signupPage");
 const {DriverFactory}  = require("../pages/driverfactory");
 const {MyContactsPage} = require('../pages/mycontactsPage');
 const {LoginPage} = require('../pages/loginPage');
+const {faker} = require('@faker-js/faker');
 const {expect} = require('chai');
 const exp = require("constants");
 
@@ -14,7 +15,7 @@ describe("SignUp page test suite", () => {
   before(
     "Initialize driver and pass driver to signupPage object",
     async () => {
-
+//TODO : Before steps.
       
     });
 
@@ -33,10 +34,10 @@ describe("SignUp page test suite", () => {
 
     it('Add user test', async()=>{
         await signupPage.navigateToSignupPage();
-        await signupPage.enterfirstname("Curran");
-        await signupPage.enterlastname("Lennert");
-        await signupPage.enteremail("curran.er123@gmail.com");
-        await signupPage.enterpassword("Test@123");
+        await signupPage.enterfirstname(faker.person.firstName());
+        await signupPage.enterlastname(faker.person.lastName());
+        await signupPage.enteremail(faker.internet.email());
+        await signupPage.enterpassword(faker.internet.password());
         await signupPage.clickSubmitBtn();
         expect(await mycontactsPage.getMyContactsPageTitle());
         expect(await mycontactsPage.isLogoutBtnAvailable());
@@ -44,10 +45,10 @@ describe("SignUp page test suite", () => {
 
     it('Sign up and do Logout', async ()=>{
         await signupPage.navigateToSignupPage();
-        await signupPage.enterfirstname("Curran");
-        await signupPage.enterlastname("Lennert");
-        await signupPage.enteremail("curran.rt1@gmail.com");
-        await signupPage.enterpassword("Test@123");
+        await signupPage.enterfirstname(faker.person.firstName());
+        await signupPage.enterlastname(faker.person.lastName());
+        await signupPage.enteremail(faker.internet.email());
+        await signupPage.enterpassword(faker.internet.password());
         await signupPage.clickSubmitBtn();
         await mycontactsPage.clickLogoutBtn();
         expect(await loginPage.getLoginPageTitle());
