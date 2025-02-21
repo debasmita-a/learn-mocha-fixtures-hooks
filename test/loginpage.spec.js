@@ -1,17 +1,15 @@
 const { SignUpPage } = require("../pages/signupPage");
-const { DriverFactory } = require("../pages/driverfactory");
 const { MyContactsPage } = require("../pages/mycontactsPage");
-const { LoginPage } = require("../pages/loginPage");
+const { LoginPage }  = require("../pages/loginPage");
 const { expect } = require("chai");
-const exp = require("constants");
-const {generateUserData} = require("../common/userData");
+const { generateUserData } = require("../common/userData");
+const { getDriver } = require("./basetest");
 
 describe("Login Page test suite", () => {
-  let driver, loginPage, myContactsPage, signupPage, userData;
+ let driver, loginPage, myContactsPage, signupPage, userData;
 
   beforeEach("Runs before each tests", async () => {
-    //FIXME : Figure out a way to initialize the driver just once and launch the browser per test file, not for each test
-    driver = await DriverFactory.createDriver();
+    driver = getDriver();
     loginPage = new LoginPage(driver);
     myContactsPage = new MyContactsPage(driver);
     signupPage = new SignUpPage(driver);

@@ -1,6 +1,7 @@
 const {By, WebDriver, until} = require('selenium-webdriver');
 
 class LoginPage{
+
     constructor(driver){
 /** @type {WebDriver | null} */
         this.driver = driver;

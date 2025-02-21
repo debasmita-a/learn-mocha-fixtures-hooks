@@ -1,29 +1,22 @@
 const {SignUpPage}  = require("../pages/signupPage");
-const {DriverFactory}  = require("../pages/driverfactory");
 const {MyContactsPage} = require('../pages/mycontactsPage');
 const {LoginPage} = require('../pages/loginPage');
-const {faker} = require('@faker-js/faker');
 const {expect} = require('chai');
-const exp = require("constants");
+const { getDriver } = require("./basetest");
+const { generateUserData } = require("../common/userData");
 
 describe("SignUp page test suite", () => {
   let driver;
   let signupPage;
   let mycontactsPage;
-  let loginPage;
-
-  before(
-    "Initialize driver and pass driver to signupPage object",
-    async () => {
-//TODO : Before steps.
-      
-    });
+  let loginPage, userData;
 
     beforeEach('Initialize Signup page instance', async ()=>{
-        driver = await DriverFactory.createDriver();
+        driver = getDriver();
         signupPage = new SignUpPage(driver);
         loginPage = new LoginPage(driver);      
         mycontactsPage = new MyContactsPage(driver);
+        userData = generateUserData();
     })
   
     it('Verify Sign up page title', async()=>{      
@@ -34,10 +27,10 @@ describe("SignUp page test suite", () => {
 
     it('Add user test', async()=>{
         await signupPage.navigateToSignupPage();
-        await signupPage.enterfirstname(faker.person.firstName());
-        await signupPage.enterlastname(faker.person.lastName());
-        await signupPage.enteremail(faker.internet.email());
-        await signupPage.enterpassword(faker.internet.password());
+        await signupPage.enterfirstname(userData.firstName);
+        await signupPage.enterlastname(userData.lastName);
+        await signupPage.enteremail(userData.email);
+        await signupPage.enterpassword(userData.password);
         await signupPage.clickSubmitBtn();
         expect(await mycontactsPage.getMyContactsPageTitle());
         expect(await mycontactsPage.isLogoutBtnAvailable());
@@ -45,10 +38,10 @@ describe("SignUp page test suite", () => {
 
     it('Sign up and do Logout', async ()=>{
         await signupPage.navigateToSignupPage();
-        await signupPage.enterfirstname(faker.person.firstName());
-        await signupPage.enterlastname(faker.person.lastName());
-        await signupPage.enteremail(faker.internet.email());
-        await signupPage.enterpassword(faker.internet.password());
+        await signupPage.enterfirstname(userData.firstName);
+        await signupPage.enterlastname(userData.lastName);
+        await signupPage.enteremail(userData.email);
+        await signupPage.enterpassword(userData.password);
         await signupPage.clickSubmitBtn();
         await mycontactsPage.clickLogoutBtn();
         expect(await loginPage.getLoginPageTitle());
