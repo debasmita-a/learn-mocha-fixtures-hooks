@@ -11,7 +11,7 @@ class MyContactsPage {
     #addContactBtn = By.id("add-contact");
 
     async getMyContactsPageTitle(){
-        return await this.driver.wait(until.titleIs("My Contacts"));
+        return await this.driver.wait(until.titleIs("My Contacts"), 2000);
     }
 
     async isLogoutBtnAvailable(){

@@ -1,4 +1,4 @@
-const { By, WebDriver } = require('selenium-webdriver');
+const { By, WebDriver, until } = require('selenium-webdriver');
 
 class SignUpPage{
 
@@ -23,7 +23,7 @@ class SignUpPage{
   }
 
   async enterfirstname(fname){
-    await this.driver.findElement(this.#firstname).sendKeys(fname);
+    await this.driver.wait(until.elementLocated(this.#firstname), 3000).sendKeys(fname);
     return this;
   }
 

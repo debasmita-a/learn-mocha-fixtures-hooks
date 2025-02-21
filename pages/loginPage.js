@@ -18,27 +18,27 @@ class LoginPage{
     }
 
     async getAppHeader(){
-        return await this.driver.findElement(this.#appHeaderText).getText();
+        return await this.driver.wait(until.elementLocated(this.#appHeaderText), 2000).getText();
     }
 
     async enterUserEmail(email){
-        await this.driver.findElement(this.#email).sendKeys(email);
+        await this.driver.wait(until.elementLocated(this.#email), 3000).sendKeys(email);
     }
 
     async enteruserPassword(pass){
-        await this.driver.findElement(this.#password).sendKeys(pass);
+        await this.driver.wait(until.elementLocated(this.#password), 3000).sendKeys(pass);
     }
 
     async doLogin(){
-        await this.driver.findElement(this.#submitBtn).click();
+        await this.driver.wait(until.elementLocated(this.#submitBtn), 2000).click();
     }
 
     async navigateToSignupPage(){
-        await this.driver.findElement(this.#signupBtn).click();
+        await this.driver.wait(until.elementLocated(this.#signupBtn), 2000).click();
     }
 
     async getErrorMessage(){
-        return await this.driver.findElement(this.#errorMsg).getText();
+        return await this.driver.wait(until.elementIsVisible(await this.driver.findElement(this.#errorMsg)), 2000).getText();
     }
 
 }
