@@ -5,10 +5,11 @@ parallel: true
 recursive: true
 reporter : 'mochawesome'
 require: 'mochawesome/register'
-reporter-option: [
+reporterOptions: [
    reportFilename: 'mochawesome-reports',
    quiet: true,
-   html: true
+   html: true,
+   json: true
 ]
 
 

@@ -21,7 +21,13 @@ jobs :
                 path_of_the_file: node_modules
 
             - name : Run the tests
-              run : npm test    
+              run : npm test  
+              
+            - name: Upload Mochawesome Report as Artifact
+              uses: actions/upload-artifact@v3
+              with:
+                name: mochawesome-report
+                path: mochawesome-report/
 
             - name: Test Report
               uses: phoenix-actions/test-reporting@v8
@@ -29,6 +35,6 @@ jobs :
               if: success() || failure()    # run this step even if previous step failed
               with:
                 name: Mocha Tests            # Name of the check run which will be created
-                path: mochawesome-report/mochawesome-*.xml    # Path to test results
-                reporter: mocha-json
+                path: mochawesome-report/mochawesome.json    # Path to test results
+                reporter: mochawesome
             
