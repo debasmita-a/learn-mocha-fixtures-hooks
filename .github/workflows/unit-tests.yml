@@ -37,5 +37,5 @@ jobs :
               with:
                 name: Mocha Tests            # Name of the check run which will be created
                 path: mochawesome-report/mochawesome.json    # Path to test results
-                reporter: mochawesome
+                reporter: mocha-json
             
