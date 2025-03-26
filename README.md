@@ -29,29 +29,6 @@ This is a configuration file for running a mocha test framework. It is not absol
 
 The .mocharc.yaml file looks like :
 
-timeout : '6000'
-
-#reporter: 'spec'
-
-package: './package.json'
-
-parallel: true
-
-recursive: true
-
-reporter : 'mochawesome'
-
-require: 'mochawesome/register'
-
-reporter-option: [
-
-   reportFilename: 'mochawesome-reports',
-
-   quiet: true,
-
-   html: true
-   
-]
 
 
 

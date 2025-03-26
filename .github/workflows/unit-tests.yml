@@ -1,1 +1,25 @@
+name : Mocha tests
 
+on : 
+    push : 
+        branches: 
+            - master
+
+jobs : 
+    test : 
+        runs-on : self-
+        steps : 
+            - name : Check out repo
+              uses : actions/checkout@v4
+              
+            - name : NodeJs
+              uses : actions/setup-node@v4
+
+            - name: Caching and installing dependencies
+              uses: mdasifnasin/node-js-cache-and-dependencies-install@1.0-Alpha
+              with:
+                path_of_the_file: node_modules
+
+            - name : Run the tests
+              run : npm test    
+            
