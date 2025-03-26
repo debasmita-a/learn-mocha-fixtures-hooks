@@ -7,7 +7,7 @@ on :
 
 jobs : 
     test : 
-        runs-on : self-
+        runs-on : self-hosted
         steps : 
             - name : Check out repo
               uses : actions/checkout@v4
