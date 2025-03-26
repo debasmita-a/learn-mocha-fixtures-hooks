@@ -24,10 +24,11 @@ jobs :
               run : npm test  
               
             - name: Upload Mochawesome Report as Artifact
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: mochawesome-report
                 path: mochawesome-report/
+              continue-on-error: true
 
             - name: Test Report
               uses: phoenix-actions/test-reporting@v8
